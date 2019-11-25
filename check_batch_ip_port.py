@@ -30,7 +30,7 @@ with open(textfile, 'r') as f:
         except socket.error as msg:
             print('failed to '+ ip + ':' + port + ' ' + str(msg) +'\n')
             pass
-
-s.close()
+        s.close()
+        
 f.close()
 print('### END OF TEST ###')
