@@ -1,10 +1,15 @@
 # socket_check
-
-Run python script check_batch_ip_port.py from anyone of OpenShift worker node in each env
+The python script to verify connection to target IP and Port
 
 ### run in batch
+Prepare the list of IPs and Ports in a plaintext file
 ```
-$ python check_batch_ip_port.py <list_of_ip_port_in plaintext_file>
+192.168.12.13,22
+www.google.com 443
+```
+run check_batch_ip_port.py
+```
+$ python check_batch_ip_port.py <list_of_ip_port_in_plaintext_file>
 ```
 Sample output
 ```
