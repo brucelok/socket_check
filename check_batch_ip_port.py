@@ -8,7 +8,7 @@ example file format (comma is required as a delimiter btw IP and Port):
 10.0.0.2,22
 syntax:
 $ python check_batch_ip_port.py <text filename>
-author: BruceMC_Lok@cncbinternational.com
+author: lok.bruce@gmail.com
 '''
 def socket_connect(ip, port):
     '''
