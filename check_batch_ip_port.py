@@ -32,5 +32,4 @@ with open(textfile, 'r') as f:
             pass
         s.close()
         
-f.close()
 print('### END OF TEST ###')
