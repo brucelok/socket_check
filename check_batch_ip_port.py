@@ -15,7 +15,13 @@ if len(sys.argv) < 2:
 
 textfile = sys.argv[1]  #take filename in same directory
 
-with open(textfile, 'r') as f:
+try:
+    f = open(textfile, 'r')
+except OSError as e:
+    print('failed to open '+ textfile + ' ' + str(e))
+    sys.exit(1)
+
+with f:
     for line in f:
         awk = line.split(",")
         ip = awk[0]
