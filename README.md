@@ -5,7 +5,9 @@ The python script to verify connection to target IP and Port
 Prepare the list of IPs and Ports in a plaintext file
 ```
 192.168.12.13,22
-www.google.com 443
+8.8.8.9,443
+www.python.org,443
+macaddress.io,443
 ```
 run check_batch_ip_port.py
 ```
