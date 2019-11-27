@@ -1,7 +1,19 @@
 # socket_check
-The python script to verify connection to target IP and Port
+The python script to verify connection to multiple hosts in parallel
 
-### run in batch
+### 1. Multi-ping
+`multiping.py` ping multiple ip addresses in parallel at once 
+with native Python library.  simply read a list of IP from a plaintext file
+
+example: 
+```
+$ python multiping.py <file_list>
+```
+
+### 2. Connect sockets in batch
+`check_batch_ip_port.py` establish connection to multiple sockets (IP,Port)
+in paraell from a plaintext file
+
 Prepare the list of IPs and Ports in a plaintext file
 ```
 192.168.12.13,22
@@ -32,7 +44,9 @@ failed to www.google.com:443 timed out
 ### END OF TEST ###
 ```
 
-### run single socket
+### 3. Connect single socket
+`check_ip_port.py` only connect a single socket real quick
+
 run check_ip_port.py for single IP and Port
 ```
 $ python check_ip_port.py 127.0.0.1 53
