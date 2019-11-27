@@ -1,5 +1,5 @@
 # socket_check
-The python script to verify connection to multiple hosts in parallel
+The python script to verify connection to single/multiple hosts in parellel.
 
 ### 1. Multi-ping
 `multiping.py` ping multiple ip addresses in parallel at once 
@@ -10,7 +10,7 @@ example:
 $ python multiping.py <file_list>
 ```
 
-### 2. Connect sockets in batch
+### 2. Connect multiple sockets in parallel
 `check_batch_ip_port.py` establish connection to multiple sockets (IP,Port)
 in paraell from a plaintext file
 
