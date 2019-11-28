@@ -1,13 +1,13 @@
 import sys, subprocess, platform
-from multiprocessing import Process
+import threading
 '''
 The script able to ping multiple ip addresses in parallel at once 
-with native Python library.  simply read a list of IP from a plaintext file
+with native Python libraries.  simply read a list of IP from a plaintext file
 example: $ python multiping.py <file_list>
 author: lok.bruce@gmail.com
 '''
 
-# Global var for defining ping arg btw Windows and Linux
+# Global var to determine the type of OS
 param = '-n' if platform.system() == 'Windows' else '-c'
 
 def cmd_ping(ip):
@@ -43,11 +43,11 @@ if __name__ == "__main__":
     with f:
         for ip in f:
             # instantiate process with arguments(ip, port)
-            proc = Process(target=cmd_ping, args=(ip,))
-            procs.append(proc)
-            proc.start()    # start multiple processes to connect socket
+            thread = threading.Thread(target=cmd_ping, args=(ip,))
+            procs.append(thread)
+            thread.start()    # start multiple processes to connect socket
 
-        for proc in procs:
-            proc.join()    # recycle all processes
+        for p in procs:
+            p.join()    # recycle all processes
 
     print('### END OF PING TEST ###')
