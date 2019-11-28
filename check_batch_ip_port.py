@@ -1,5 +1,5 @@
 import sys, socket
-from multiprocessing import Process
+import threading
 '''
 a simple tool that read a list of IP addresses/ports from a plaintext file
 and verify the remote IP/Port connection in parallel.
@@ -47,12 +47,12 @@ if __name__ == "__main__":
             ip = awk[0]
             port = awk[1]
             
-            # instantiate process with arguments(ip, port)
-            proc = Process(target=socket_connect, args=(ip, port,))
-            procs.append(proc)
-            proc.start()    # start multiple processes to connect socket
+            # instantiate threads with arguments(ip, port)
+            thread = threading.Thread(target=socket_connect, args=(ip, port,))
+            procs.append(thread)
+            thread.start()    # start multiple threads to connect socket
 
-        for proc in procs:
-            proc.join()    # recycle all processes
+        for p in procs:
+            p.join()    # recycle all thread
 
     print('### END OF TEST ###')
